@@ -2,8 +2,8 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
-#define WIDTH 1080
-#define HEIGHT 720
+#define WIDTH 960
+#define HEIGHT 640
 
 int main() {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
@@ -11,7 +11,7 @@ int main() {
         return 1;
     }
 
-    SDL_Window *window = SDL_CreateWindow("PixelView v0.1.0", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
+    SDL_Window *window = SDL_CreateWindow("PixelView v0.1.0", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
     if (window == nullptr) {
         std::cerr << "SDL_CreateWindow Error: " << SDL_GetError() << std::endl;
         SDL_Quit();
