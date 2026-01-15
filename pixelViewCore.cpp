@@ -24,10 +24,13 @@ int main() {
     g = b = 0x00;
     Uint32 color = SDL_MapRGB(surface->format, r, g, b);
 
-    int x = 50;
-    int y = 50;
-    SDL_Rect pixel = (SDL_Rect){x, y, 1, 1};
-    SDL_FillRect(surface, &pixel, color);
+    SDL_Rect pixel = (SDL_Rect){0, 0, 1, 1};
+    for (int x = 0; x < WIDTH; ++x) {
+        for (int y = 0; y < HEIGHT; ++y) {
+            SDL_FillRect(surface, &pixel, color);
+        }
+    }
+
     SDL_UpdateWindowSurface(window);
     SDL_Delay(3000);
 
