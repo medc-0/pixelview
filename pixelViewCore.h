@@ -31,7 +31,7 @@ private:
 
     void loadImage(const std::string& filename);
     void fitToWindow();
-    void renderer();
+    void render();
 };
 
 #endif

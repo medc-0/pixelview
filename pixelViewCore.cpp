@@ -1,13 +1,13 @@
 #define SDL_MAIN_HANDLED
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <iostream>
-#include <string>
-
 #include "pixelViewCore.h"
+#include <iostream>
+#include <algorithm>
+
+static const int MAX_W = 900;
+static const int MAX_H = 600;
 
 ImageViewer::ImageViewer(const std::string& filename)
-    : window(nullptr), renderer(nullptr), texture(nullptr), width(0), height(0) {
+    : window(nullptr), renderer(nullptr), texture(nullptr), imgW(0), imgH(0), zoom(1.0f), offsetX(0), offsetY(0), dragging(false), lastX(0), lastY(0) {
     loadImage(filename);
 }
 
