@@ -17,20 +17,16 @@ int main() {
         SDL_Quit();
         return 1;
     }
-
     SDL_Surface *surface = SDL_GetWindowSurface(window);
 
-    bool running = true;
-    SDL_Event event;
+    Uint8 r,g,b;
+    r=0xFF;
+    g = b = 0x00;
+    Uint32 color = SDL_MapRGB(surface->format, r, g, b);
 
-    while (running) {
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT)
-                running = false;
-        }
-        SDL_FillRect(surface, nullptr, SDL_MapRGB(surface->format, 0, 0, 0));
-        SDL_UpdateWindowSurface(window);
-    }
+    SDL_FillRect(surface, NULL, color);
+    SDL_UpdateWindowSurface(window);
+    SDL_Delay(3000);
 
     SDL_DestroyWindow(window);
     SDL_Quit();
